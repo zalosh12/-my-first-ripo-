@@ -1,0 +1,21 @@
+from abc import ABC, abstractmethod
+
+class PaymentProcessor(ABC):
+    @abstractmethod
+    def payment_process(self, amount):
+        pass
+
+class CreditCardProcessor(PaymentProcessor):
+    def payment_process(self, amount):
+        print(f"{amount} שולם באמצעות כרטיס אשראי.")
+
+class PayPalProcessor(PaymentProcessor):
+    def payment_process(self, amount):
+        print(f"{amount} שולם באמצעות PayPal.")
+
+# דוגמא לשימוש
+credit_card = CreditCardProcessor()
+paypal = PayPalProcessor()
+
+credit_card.payment_process(100)
+paypal.payment_process(200)
